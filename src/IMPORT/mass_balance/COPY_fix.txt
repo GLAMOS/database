@@ -1,0 +1,1 @@
+COPY mass_balance.mass_balance_glacier (pk, fk_glacier, fk_mass_balance_glacier_type, date_annual_from, date_annual_to, date_winter_start, date_winter_end, winter_mass_balance, annual_mass_balance, equilibrium_line_altitude, accumulation_area_ratio) FROM '/usr/vawsrv01/data-vaw-01/glamos/upload/silvretta_fix.csv' WITH DELIMITER ';' CSV HEADER NULL AS 'NULL';

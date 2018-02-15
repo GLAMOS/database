@@ -1,0 +1,1 @@
+﻿COPY base_data.glacier_picture (pk, fk_glacier, picture_name, picture_date, photograph_name_last, photograph_name_first, mass_balance_title, length_change_title) FROM '/usr/vawsrv01/data-vaw-01/glamos/upload/base_data/glacier_picture.csv' WITH DELIMITER ';' CSV HEADER NULL AS 'NULL';
