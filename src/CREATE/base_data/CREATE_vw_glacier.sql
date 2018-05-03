@@ -1,5 +1,13 @@
+/* ------------------------------------ */
+/*  GLAMOS, Yvo Weidmann         		*/
+/*  Created On : 05-Mai-2018 16:16:20   */
+/*  DBMS       : PostgreSQL 			*/
+/* ------------------------------------ */
+
+/* Drop View */
 DROP VIEW base_data.vw_glacier;
 
+/* Create View */
 CREATE VIEW base_data.vw_glacier AS
 	SELECT 
 		row_number() OVER() AS gid, 
