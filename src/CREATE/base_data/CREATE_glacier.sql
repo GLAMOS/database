@@ -1,6 +1,6 @@
 ﻿/* ------------------------------------ */
 /*  GLAMOS, Yvo Weidmann         		*/
-/*  Created On : 09-Apr-2018 10:06:20   */
+/*  Created On : 05-Mai-2018 10:06:20   */
 /*  DBMS       : PostgreSQL 			*/
 /* ------------------------------------ */
 
@@ -14,17 +14,19 @@ DROP TABLE IF EXISTS base_data.glacier CASCADE
 CREATE TABLE base_data.glacier
 (
 	pk uuid NOT NULL,
-	pk_vaw integer NOT NULL,
+	pk_vaw integer NULL,
 	pk_wgms varchar(14) NULL,
-	short_name varchar(20) NULL,
-	name varchar(50) NOT NULL,
+	name_short varchar(20) NULL,
+	name varchar(256) NULL,
+	name_vaw varchar(256) NULL,
+	name_tlm varchar(256) NULL,
 	river_level_3 varchar(1) NOT NULL,
 	river_level_2 smallint NOT NULL,
 	river_level_1 smallint NOT NULL,
 	river_level_0 varchar(1) NULL,
 	inventory_code smallint NOT NULL,
-	latitude numeric(8,6) NOT NULL,
-	longitude numeric(8,6) NOT NULL
+	latitude numeric(12,10) NOT NULL,
+	longitude numeric(12,10) NOT NULL
 )
 TABLESPACE	vector
 ;
