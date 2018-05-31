@@ -3,3 +3,5 @@
 *.dat
 *.insert
 *.txt
+*.py
+src/IMPORT/length_change/COPY_lc.sql
