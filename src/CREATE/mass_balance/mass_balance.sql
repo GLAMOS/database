@@ -25,7 +25,7 @@ CREATE TABLE mass_balance.mass_balance
 	area numeric(9,5) NOT NULL,
 	mass_balance_annual integer NOT NULL,
 	mass_balance_winter integer NOT NULL,
-	equilibrium_line_altitide smallint NOT NULL,
+	equilibrium_line_altitude smallint NOT NULL,
 	accumulation_area_ratio smallint NOT NULL,
 	elevation_minimum smallint NOT NULL,
 	elevation_maximum smallint NOT NULL,
