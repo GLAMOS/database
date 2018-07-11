@@ -6,8 +6,7 @@
 
 /* Drop Tables */
 
-DROP TABLE IF EXISTS mass_balance.elevation_distribution CASCADE
-;
+DROP TABLE IF EXISTS mass_balance.elevation_distribution CASCADE;
 
 /* Create Tables */
 
@@ -20,22 +19,19 @@ CREATE TABLE mass_balance.elevation_distribution
 	mass_balance_annual integer NOT NULL,
 	mass_balance_winter integer NOT NULL,
 	area numeric(9,5) NOT NULL,
-	remarks varchar(500) NULL
-)
-;
+	remarks varchar(500) NULL,
+	FOREIGN KEY (fk_mass_balance) REFERENCES mass_balance.mass_balance (pk) ON DELETE CASCADE
+);
 
 /* Create Primary Keys, Indexes, Uniques, Checks */
 
 ALTER TABLE mass_balance.elevation_distribution ADD CONSTRAINT pk_mass_balance_elevation_distribution_definition
-	PRIMARY KEY (pk)
-;
+	PRIMARY KEY (pk);
 
 ALTER TABLE mass_balance.elevation_distribution 
-  ADD CONSTRAINT uq_mass_balance_elevation_distribution_definition_pk UNIQUE (pk)
-;
+  ADD CONSTRAINT uq_mass_balance_elevation_distribution_definition_pk UNIQUE (pk);
 
 /* Create Foreign Key Constraints */
 
 ALTER TABLE mass_balance.elevation_distribution ADD CONSTRAINT fk_mass_balance_elevation_distribution_mass_balance
-	FOREIGN KEY (fk_mass_balance) REFERENCES mass_balance.mass_balance (pk) ON DELETE No Action ON UPDATE No Action
-;
+	FOREIGN KEY (fk_mass_balance) REFERENCES mass_balance.mass_balance (pk) ON DELETE CASCADE ON UPDATE CASCADE;
