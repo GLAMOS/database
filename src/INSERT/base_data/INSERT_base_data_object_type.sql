@@ -1,0 +1,2 @@
+INSERT INTO base_data.object_type (pk, short_name, description) VALUES (0, 'Outline', 'Outline of the entire glacier');
+INSERT INTO base_data.object_type (pk, short_name, description) VALUES (1, 'Tongue', 'Outline in the region of the glacier tongue');

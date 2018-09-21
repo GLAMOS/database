@@ -1,0 +1,14 @@
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (1, 'GPS handheld', 'GPS handheld');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (2, 'GPS differential', 'GPS differential');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (3, 'Tape measurement', 'Tape measurement');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (4, 'Stereo digitising', 'Stereo digitising');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (5, 'Planar digitising', 'Planar digitising');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (6, 'Rangefinder', 'Rangefinder');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (7, 'Estimation', 'Estimation');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (8, 'Theodolite', 'Theodolite');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (9, 'Measuring table', 'Measuring table');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (10, 'Other', 'Other');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (11, 'Unknown', 'Unknown');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (12, 'Stereoplotter', 'Stereoplotter');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (13, 'GIS and RS modelling', 'GIS and RS modelling');
+INSERT INTO administration.position_capture_method_type (pk, short_name, description) VALUES (14, 'Forward reading', 'Forward reading');

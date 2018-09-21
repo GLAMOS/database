@@ -30,7 +30,11 @@ ALTER TABLE mass_balance.elevation_distribution ADD CONSTRAINT pk_mass_balance_e
 
 ALTER TABLE mass_balance.elevation_distribution 
   ADD CONSTRAINT uq_mass_balance_elevation_distribution_definition_pk UNIQUE (pk);
+  
+CREATE INDEX "IXFK_elevation_distribution_mass_balance" ON mass_balance.elevation_distribution (fk_mass_balance ASC);
 
+CREATE INDEX "IXFK_elevation_distribution_pk" ON mass_balance.elevation_distribution (pk ASC);
+  
 /* Create Foreign Key Constraints */
 
 ALTER TABLE mass_balance.elevation_distribution ADD CONSTRAINT fk_mass_balance_elevation_distribution_mass_balance

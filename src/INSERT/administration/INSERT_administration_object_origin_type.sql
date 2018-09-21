@@ -1,0 +1,18 @@
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (1, 'Field measurement', 'Field measurement');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (2, 'Stereo aerial photography', 'Stereo aerial photography');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (3, 'Ortho aerial photography', 'Ortho aerial photography');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (4, 'Pixel maps 1:25000', 'Pixel maps 1:25000');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (5, 'Pixel maps 1:50000', 'Pixel maps 1:50000');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (6, 'Other', 'Other');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (7, 'Map drawings and figures', 'Map drawings and figures');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (8, 'Unknown', 'Unknown');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (9, 'Topographical maps 1:50000', 'Topographical maps 1:50000');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (10, 'Dufour maps', 'Dufour maps');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (11, 'Siegfried maps', 'Siegfried maps');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (12, 'Compilation miscellaneous sources', 'Compilation miscellaneous sources');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (13, 'Inventory', 'Inventory');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (14, 'Landsat imagery', 'Landsat imagery');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (15, 'Terrestrial photogrammetry', 'Terrestrial photogrammetry');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (16, 'Overview map 1:10000', 'Overview map 1:10000');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (17, 'SwissImage', 'SwissImage');
+INSERT INTO administration.object_origin_type (pk, short_name, description) VALUES (18, 'Historical Reconstruction', 'Historical Reconstruction');
