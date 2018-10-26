@@ -16,7 +16,7 @@ CREATE TABLE mass_balance.mass_balance
 	pk uuid NOT NULL,
 	fk_glacier uuid NOT NULL,
 	fk_mass_balance_type smallint NOT NULL,
-	fk_embargo_type smallint NOT NULL   DEFAULT 0,
+	fk_embargo_type smallint NOT NULL,
 	fk_analysis_method smallint NOT NULL,
 	date_from_annual date NOT NULL,
 	date_to_annual date NOT NULL,

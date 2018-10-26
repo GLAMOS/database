@@ -1,0 +1,10 @@
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('d327702d-ada2-41e6-b753-5b89720064a6', '81103970-4ec8-11e8-8d3b-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('aa80677a-8129-41dc-bbc7-136cd0ca99e8', '800b9aae-4ec8-11e8-a4bc-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('c6ca0762-945c-4f9f-ab36-fe08b0ad2c28', '80cc2b8f-4ec8-11e8-9ef4-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('b8c72f5c-4ca9-4c25-a46e-772a96b7596a', '81ed04e1-4ec8-11e8-a1f7-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('37962481-346c-4cba-9443-350f6bc38e18', '81c383e1-4ec8-11e8-96ba-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('5c7fdf5a-1eff-4aef-b4e2-8249898b5f59', '7f6f33a1-4ec8-11e8-88b8-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('0d1ea636-d24a-4d1c-86f7-e71f161763ed', '80e4bc9e-4ec8-11e8-a0f7-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('4051ce52-8e11-4c8f-9c27-816723c59c0b', '813e9c70-4ec8-11e8-bda0-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('67cc1cec-89e3-4105-96cb-098de88943fa', '821610ae-4ec8-11e8-a4cf-985fd331b2ee', 0);
+INSERT INTO base_data.glacier_particular_interest (pk, fk_glacier, fk_glacier_particular_interest_type) VALUES ('03eae080-c8e5-455a-81a2-a27fb94c9cdd', '7f277c40-4ec8-11e8-80f0-985fd331b2ee', 0);

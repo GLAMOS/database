@@ -1,0 +1,2 @@
+INSERT INTO base_data.glacier_description_type (pk, short_name, description) VALUES (0, 'Factsheet glacier description', 'A description shown on the web page of GLAMOS');
+INSERT INTO base_data.glacier_description_type (pk, short_name, description) VALUES (1, 'Factsheet data citation', 'The citation to be used shown on the web page of GLAMOS');

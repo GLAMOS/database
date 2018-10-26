@@ -7,6 +7,7 @@
 CREATE OR REPLACE VIEW mass_balance.vw_mass_balance_data AS
 	SELECT
 		row_number() OVER()            AS gid, 
+		g.pk                           AS pk_glacier,
 		g.pk_sgi                       AS pk_sgi,
 		g.pk_wgms                      AS pk_wgms,
 		g.pk_glims                     AS pk_glims,
@@ -24,6 +25,7 @@ CREATE OR REPLACE VIEW mass_balance.vw_mass_balance_data AS
 		date_to_winter,
 		area,
 		mass_balance_annual,
+		sum(mass_balance_annual) OVER (PARTITION BY pk_sgi ORDER BY date_to) AS mass_balance_annual_cumulative
 		mass_balance_winter,
 		equilibrium_line_altitude,
 		accumulation_area_ratio,
@@ -31,7 +33,7 @@ CREATE OR REPLACE VIEW mass_balance.vw_mass_balance_data AS
 		elevation_maximum,
 		reference
 	FROM
-		mass_balance.mass_balance AS mb
+		mass_balance.mass_balance AS mb WHERE g.name_short = 'rhone'
 	LEFT JOIN base_data.vw_glacier AS g ON 
 			(mb.fk_glacier = g.pk)
 	LEFT JOIN mass_balance.analysis_method_type AS amt ON 

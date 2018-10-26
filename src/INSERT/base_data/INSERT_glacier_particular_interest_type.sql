@@ -1,0 +1,1 @@
+INSERT INTO base_data.glacier_particular_interest_type (pk, short_name, description) VALUES (0, 'Selected glacier to be shown on GLAMOS home website', 'The selected glaciers are shown randomly on the home-screen of the GLAMOS Webpage');
