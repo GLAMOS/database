@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW mass_balance.vw_mass_balance AS
+CREATE OR REPLACE VIEW mass_balance.vw_mass_balance_observation_cumulative AS
 	SELECT
 		g.pk                        AS pk_glacier,	
 		g.pk_vaw                    AS pk_vaw,
@@ -18,6 +18,8 @@ CREATE OR REPLACE VIEW mass_balance.vw_mass_balance AS
 		mb.area,
 		mb.mass_balance_annual,
 		mb.mass_balance_winter,
+		sum(mass_balance_annual) OVER (PARTITION BY mb.fk_glacier ORDER BY date_to_annual) AS mass_balance_annual_cumulative,
+		sum(mass_balance_winter) OVER (PARTITION BY mb.fk_glacier ORDER BY date_to_annual) AS mass_balance_winter_cumulative,
 		mb.equilibrium_line_altitude,
 		mb.accumulation_area_ratio,
 		mb.elevation_minimum,
@@ -25,8 +27,8 @@ CREATE OR REPLACE VIEW mass_balance.vw_mass_balance AS
 		mb.remarks,
 		mb.reference
 	FROM
-		mass_balance.mass_balance AS mb
-		
+		mass_balance.mass_balance AS mb 
+
 	LEFT JOIN mass_balance.mass_balance_type AS mbt ON
 		(mbt.pk = mb.fk_mass_balance_type)
 	LEFT JOIN administration.data_embargo_type AS det ON
@@ -34,10 +36,11 @@ CREATE OR REPLACE VIEW mass_balance.vw_mass_balance AS
 	LEFT JOIN mass_balance.analysis_method_type AS amt ON
 		(amt.pk = mb.fk_analysis_method)
 	LEFT JOIN base_data.vw_glacier g ON 
-		(g.pk = mb.fk_glacier);
+		(g.pk = mb.fk_glacier)
+		
+	WHERE mb.fk_mass_balance_type = 1;
 
-GRANT SELECT ON mass_balance.vw_mass_balance TO glro;
-GRANT SELECT ON mass_balance.vw_mass_balance TO glrw;
-GRANT SELECT ON mass_balance.vw_mass_balance TO glporo;
-GRANT SELECT ON mass_balance.vw_mass_balance TO gldiro;
-GRANT SELECT ON mass_balance.vw_mass_balance TO gldirw;
+ALTER TABLE mass_balance.vw_mass_balance_observation
+    OWNER TO gladmin;
+
+GRANT ALL ON TABLE mass_balance.vw_mass_balance_observation TO gladmin;

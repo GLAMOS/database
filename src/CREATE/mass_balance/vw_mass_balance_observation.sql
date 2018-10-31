@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW mass_balance.vw_mass_balance AS
+CREATE OR REPLACE VIEW mass_balance.vw_mass_balance_observation AS
 	SELECT
 		g.pk                        AS pk_glacier,	
 		g.pk_vaw                    AS pk_vaw,
@@ -34,10 +34,11 @@ CREATE OR REPLACE VIEW mass_balance.vw_mass_balance AS
 	LEFT JOIN mass_balance.analysis_method_type AS amt ON
 		(amt.pk = mb.fk_analysis_method)
 	LEFT JOIN base_data.vw_glacier g ON 
-		(g.pk = mb.fk_glacier);
+		(g.pk = mb.fk_glacier)
+		
+	WHERE mb.fk_mass_balance_type = 1;
 
-GRANT SELECT ON mass_balance.vw_mass_balance TO glro;
-GRANT SELECT ON mass_balance.vw_mass_balance TO glrw;
-GRANT SELECT ON mass_balance.vw_mass_balance TO glporo;
-GRANT SELECT ON mass_balance.vw_mass_balance TO gldiro;
-GRANT SELECT ON mass_balance.vw_mass_balance TO gldirw;
+ALTER TABLE mass_balance.vw_mass_balance_observation
+    OWNER TO gladmin;
+
+GRANT ALL ON TABLE mass_balance.vw_mass_balance_observation TO gladmin;
