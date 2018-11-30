@@ -16,3 +16,5 @@ INSERT INTO mass_balance.analysis_method_type (pk, short_name, description)
    VALUES (7, 'ReconstructionVolumeChange', 'Reconstruction from volume change analysis (dV)');
 INSERT INTO mass_balance.analysis_method_type (pk, short_name, description) 
    VALUES (8, 'ReconstructionVolumeChangeHelpStake', 'Reconstruction from volume change with help of stake data (dV & b_a/b_w)');
+INSERT INTO mass_balance.analysis_method_type (pk, short_name, description) 
+   VALUES (9, 'NoMeasurementOnlyModelResults', 'No measurement, only model results');
