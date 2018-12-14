@@ -26,7 +26,7 @@ CREATE OR REPLACE VIEW cryospheric_commission.ekk_data AS
     t.yunit_fr,
     t.yunit_it,
     t.yunit_en
-   FROM cryospheric_commission.data2d d
+   FROM cryospheric_commission.ekk_data2d_union d
      JOIN cryospheric_commission.obj o ON d.objid = o.objid
      JOIN cryospheric_commission.datatype2d t ON d.objtyp = t.objtyp;
  
