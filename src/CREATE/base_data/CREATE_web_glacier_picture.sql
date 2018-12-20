@@ -1,16 +1,20 @@
 CREATE OR REPLACE VIEW base_data.web_glacier_picture AS
 	SELECT
-		gp.pk            AS pk,
-		gp.fk_glacier    AS pk_glacier,
-		vg.pk_sgi        AS pk_sgi,
-		g.pk_vaw         AS pk_vaw,
+		g.pk_sgi,
 		gp.picture_name,
-		gp.picture_date,
+		g.name_full || ' (' || gp.picture_date || ', ' || gp.photograph || ')' AS legend,
 		CASE
-			  WHEN gp.photograph_name_first IS NULL THEN gp.photograph_name_last
-			  ELSE gp.photograph_name_first || ' ' || gp.photograph_name_last
-		END 
-		                 AS photograph
-	FROM base_data.glacier_picture AS gp
-	LEFT JOIN base_data.vw_glacier AS vg ON gp.fk_glacier = vg.pk
-	LEFT JOIN base_data.glacier AS g ON gp.fk_glacier = g.pk;
+			WHEN gp.fk_glacier_picture_type = 1 THEN true
+			ELSE false
+		END AS is_factsheet_picture
+	FROM
+		base_data.vw_glacier_picture AS gp
+	LEFT JOIN
+		base_data.vw_glacier AS g
+	ON gp.pk_glacier = g.pk;
+	
+ALTER TABLE base_data.web_glacier_picture
+    OWNER TO gladmin;
+
+GRANT SELECT ON TABLE base_data.web_glacier_picture TO glporo;
+GRANT SELECT ON TABLE base_data.web_glacier_picture TO glro;

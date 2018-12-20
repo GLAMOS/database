@@ -1,0 +1,2 @@
+INSERT INTO base_data.glacier_picture_type (pk, short_name, description) VALUES (0, 'Not a perticular picture', 'This picture will not be used for any special purposes');
+INSERT INTO base_data.glacier_picture_type (pk, short_name, description) VALUES (1, 'Factsheet picture', 'This picture will be used to be shown in the factsheet of the glacier');

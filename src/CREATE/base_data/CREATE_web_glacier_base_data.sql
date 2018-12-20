@@ -6,7 +6,7 @@ CREATE OR REPLACE VIEW base_data.web_glacier_base_data AS
 		g.pk_sgi                                                  AS pk_sgi,
 		round(ST_X(ST_TRANSFORM(g.geom, 3857))::numeric, 3)       AS coordx,
 		round(ST_Y(ST_TRANSFORM(g.geom, 3857))::numeric, 3)       AS coordy,
-		ST_AsGeoJSON(ST_TRANSFORM(g.geom, 3857), 3, 0)            AS geom,
+		ST_TRANSFORM(g.geom, 3857)                                AS geom,
 		
 		hlcd.has_length                                           AS has_length,
 		lclo.latest_observation_variation_quantitative_cumulative AS last_length_change_cumulative,
