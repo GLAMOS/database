@@ -1,8 +1,7 @@
 CREATE OR REPLACE VIEW mass_balance.vw_elevation_distribution AS
-SELECT
- *
-FROM
- mass_balance.elevation_distribution ed;
+	SELECT
+ 		*
+	FROM mass_balance.elevation_distribution AS ed;
 
 GRANT SELECT ON mass_balance.vw_mass_balance TO glro;
 GRANT SELECT ON mass_balance.vw_mass_balance TO glrw;

@@ -1,5 +1,6 @@
 CREATE OR REPLACE VIEW base_data.web_glacier_picture AS
 	SELECT
+		g.pk AS pk_glacier,
 		g.pk_sgi,
 		gp.picture_name,
 		g.name_full || ' (' || gp.picture_date || ', ' || gp.photograph || ')' AS legend,

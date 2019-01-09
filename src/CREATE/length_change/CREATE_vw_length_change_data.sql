@@ -21,7 +21,11 @@ CREATE OR REPLACE VIEW length_change.vw_length_change_data AS
 		    lc.date_to                 AS measure_date_end,
 		    dqt2.description           AS measure_date_endquality,
 			lc.variation_quantitative  AS length_change,
-			sum(variation_quantitative) OVER (PARTITION BY pk_sgi ORDER BY date_to) AS length_change_cumulative
+			sum(variation_quantitative) OVER (PARTITION BY pk_sgi ORDER BY date_to) AS length_change_cumulative,
+			dqt1.pk                    AS fk_measure_date_start_quality,
+			dqt2.pk                    AS fk_measure_date_endquality,
+			lc.elevation_min           AS elvation_tongue,
+			lc.observer                AS observer
 	FROM
 		length_change.length_change_data AS lc
 	LEFT JOIN base_data.vw_glacier AS g ON 

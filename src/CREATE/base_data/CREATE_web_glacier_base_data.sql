@@ -1,6 +1,9 @@
+DROP VIEW base_data.web_glacier_base_data CASCADE;
+
 CREATE OR REPLACE VIEW base_data.web_glacier_base_data AS
 
 	SELECT
+		g.pk                                                      AS pk_glacier,
 		g.name_short                                              AS glacier_short_name,
 		g.name_full                                               AS glacier_full_name,
 		g.pk_sgi                                                  AS pk_sgi,
@@ -8,6 +11,15 @@ CREATE OR REPLACE VIEW base_data.web_glacier_base_data AS
 		round(ST_Y(ST_TRANSFORM(g.geom, 3857))::numeric, 3)       AS coordy,
 		ST_TRANSFORM(g.geom, 3857)                                AS geom,
 		
+		CASE
+			WHEN gpi.fk_glacier_particular_interest_type = 0
+				   THEN true
+				   ELSE false
+		END                                                       AS is_vig,
+				  
+		il.area                                                   AS area_m2,
+	    il.sgi_release                                            AS area_year,
+				   
 		hlcd.has_length                                           AS has_length,
 		lclo.latest_observation_variation_quantitative_cumulative AS last_length_change_cumulative,
 		lcow.first_year                                           AS first_year_length,
@@ -32,13 +44,16 @@ CREATE OR REPLACE VIEW base_data.web_glacier_base_data AS
 		(lcow.pk_glacier = g.pk)
 	LEFT JOIN length_change.vw_length_change_latest_observation AS lclo ON
 		(lclo.pk_glacier = g.pk)
-		
 	LEFT JOIN mass_balance.vw_mass_balance_observation_has_data AS mbohd ON
 		(mbohd.pk_glacier = g.pk)
 	LEFT JOIN mass_balance.vw_mass_balance_observation_window AS mbow ON
 		(mbow.pk_glacier = g.pk)
 	LEFT JOIN mass_balance.vw_mass_balance_observation_latest AS mblo ON
-		(mblo.pk_glacier = g.pk);
+		(mblo.pk_glacier = g.pk)
+	LEFT JOIN base_data.vw_glacier_particular_interest AS gpi ON
+		(gpi.pk = g.pk)
+	LEFT JOIN inventory.vw_inventory_latest AS il ON
+		(il.pk_glacier = g.pk);
 
 ALTER TABLE base_data.web_glacier_base_data
     OWNER TO gladmin;

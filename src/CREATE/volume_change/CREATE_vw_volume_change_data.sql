@@ -27,7 +27,10 @@ CREATE OR REPLACE VIEW volume_change.vw_volume_change_data AS
 		elevation_maximum_to,
 		elevation_minimum_to,
 		volume_change,
-		height_change_mean
+		height_change_mean,
+		g.pk                           AS pk_glacier,
+		g.name_short                   AS glacier_short_name,
+		g.name_full                    AS glacier_full_name
 	FROM
 		volume_change.volume_change AS vc
 	LEFT JOIN base_data.vw_glacier AS g ON 

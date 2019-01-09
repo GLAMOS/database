@@ -1,6 +1,7 @@
 CREATE OR REPLACE VIEW base_data.web_glacier_description AS
 	SELECT
 		gd.pk,
+		g.pk AS pk_glacier,
 		g.pk_sgi,
 		g.name_short,
 		g.name_full,

@@ -1,5 +1,7 @@
 CREATE OR REPLACE VIEW inventory.vw_inventory AS
- SELECT row_number() OVER () AS gid,
+ SELECT
+    row_number() OVER () AS gid,
+    g.pk AS pk_glacier,
     g.pk_sgi,
     g.pk_wgms,
     g.pk_glims,

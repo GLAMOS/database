@@ -5,7 +5,8 @@ CREATE OR REPLACE VIEW vw_glacier_particular_interest AS
 		g.pk_sgi,
 		g.name_full,
 		gpi.fk_glacier_particular_interest_type,
-		gpit.short_name
+		gpit.short_name,
+		gpit.description
 		
 	FROM base_data.glacier_particular_interest AS gpi
 	LEFT JOIN base_data.vw_glacier AS g ON g.pk = gpi.fk_glacier
