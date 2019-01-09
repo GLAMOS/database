@@ -6,3 +6,5 @@
 *.py
 src/IMPORT/length_change/COPY_lc.sql
 src/CREATE/test/glrw_test.sql
+*.json
+*.csv
