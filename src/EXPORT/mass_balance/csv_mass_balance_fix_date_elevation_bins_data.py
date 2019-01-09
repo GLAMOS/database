@@ -21,7 +21,7 @@ cursor = connection.cursor()
 
 cursor.execute(statement)
 
-filename = "mass_balance_fix_date_elevation_bins.txt"
+filename = "mass_balance_fix_date_elevation_bins.csv"
 
 with open(filename, 'w', encoding='utf-8') as the_file:
 

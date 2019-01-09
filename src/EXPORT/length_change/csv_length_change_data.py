@@ -21,7 +21,7 @@ cursor = connection.cursor()
 
 cursor.execute(statement)
 
-filename = "length_change.txt"
+filename = "length_change.csv"
 
 with open(filename, 'w', encoding='utf-8') as the_file:
 
