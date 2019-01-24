@@ -8,3 +8,4 @@ src/CREATE/test/glrw_test.sql
 *.json
 *.csv
 *.geojson
+src/EXPORT/glamos_export.private.config
