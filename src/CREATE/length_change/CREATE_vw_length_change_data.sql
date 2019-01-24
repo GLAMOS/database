@@ -34,9 +34,9 @@ CREATE OR REPLACE VIEW length_change.vw_length_change_data AS
 	LEFT JOIN base_data.vw_glacier AS g ON 
 			(lc.fk_glacier = g.pk_vaw)
 			
-	LEFT JOIN length_change.date_quality_type AS dqt1 ON 
+	LEFT JOIN administration.date_quality_type AS dqt1 ON 
 			(lc.date_from_quality = dqt1.pk)
-	LEFT JOIN length_change.date_quality_type AS dqt2 ON 
+	LEFT JOIN administration.date_quality_type AS dqt2 ON 
 			(lc.date_to_quality = dqt2.pk)
 	LEFT JOIN administration.data_embargo_type AS det ON
 			(lc.fk_data_embargo_type = det.pk);

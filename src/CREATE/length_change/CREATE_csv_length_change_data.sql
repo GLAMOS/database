@@ -43,12 +43,12 @@ CREATE OR REPLACE VIEW length_change.csv_length_change_data AS
 
 	FROM length_change.vw_length_change_data AS lcd
 	
+	LEFT JOIN base_data.vw_glacier AS g ON (lcd.pk_glacier = g.pk)
+		
 	/*
 	ONLY PUBLIC DATA
 	*/
-	WHERE 
-	
-	LEFT JOIN base_data.vw_glacier AS g ON (lcd.pk_glacier = g.pk);
+	WHERE data_embargo_type = 0;
 	
 ALTER TABLE length_change.csv_length_change_data
     OWNER TO gladmin;
