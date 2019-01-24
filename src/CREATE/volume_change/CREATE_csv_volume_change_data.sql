@@ -6,33 +6,27 @@ CREATE OR REPLACE VIEW volume_change.csv_volume_change_data AS
 
 		/* Information about the start date */
 		vcd.date_from         AS start_date_of_observation,
-		''::varchar(1)        AS quality_of_start_date,
-		/*
-		NOT IMPLEMENTED YET IN THE DB
+
 		CASE
-				WHEN fk_date_from_quality = 11 THEN 
+				WHEN date_from_quality_type = 11 THEN 
 					'x'
-				WHEN fk_date_from_quality = 1 THEN
+				WHEN date_from_quality_type = 1 THEN
 					''
 				ELSE
 					'-'
-		END AS quality_of_start_date
-		*/
+		END AS quality_of_start_date,
+
 
 		/* Information about the end date */
 		vcd.date_to           AS end_date_of_observation,
-		''::varchar(1)        AS quality_of_end_date,
-		/*
-		NOT IMPLEMENTED YET IN THE DB
 		CASE
-				WHEN fk_date_to_quality = 11 THEN 
+				WHEN date_to_quality_type = 11 THEN 
 					'x'
-				WHEN fk_date_to_quality = 1 THEN
+				WHEN date_to_quality_type = 1 THEN
 					''
 				ELSE
 					'-'
-		END AS quality_of_end_date
-		*/
+		END AS quality_of_end_date,
 
 		/* Information about the area at the start and at the end */
 		vcd.area_from             AS glacier_area_at_start_date,
@@ -53,6 +47,12 @@ CREATE OR REPLACE VIEW volume_change.csv_volume_change_data AS
 		*/																											   
 																													   
 	FROM volume_change.vw_volume_change_data AS vcd
+	
+	/*
+	ONLY PUBLIC DATA
+	*/
+	WHERE data_embargo_type = 0
+	
 	ORDER BY glacier_id ASC, start_date_of_observation ASC;
 																																	   
 ALTER TABLE volume_change.csv_volume_change_data

@@ -6,8 +6,8 @@ statement = "SELECT jsonb_build_object::text FROM base_data.web_glacier_base_dat
 
 host = 'vawsrv01'
 dbName = 'glamos'
-dbUser = 'gldirw'
-dbPassword = 'POskXACr'
+dbUser = 'glporo'
+dbPassword = 'RmyWGsMp'
 timeout = 10
         
 connectionString = CONNECTION_STRING_TEMPLATE.format(host, dbName, dbUser, dbPassword, timeout)

@@ -42,6 +42,12 @@ CREATE OR REPLACE VIEW length_change.csv_length_change_data AS
 					AS observer
 
 	FROM length_change.vw_length_change_data AS lcd
+	
+	/*
+	ONLY PUBLIC DATA
+	*/
+	WHERE 
+	
 	LEFT JOIN base_data.vw_glacier AS g ON (lcd.pk_glacier = g.pk);
 	
 ALTER TABLE length_change.csv_length_change_data

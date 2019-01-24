@@ -14,7 +14,8 @@ CREATE OR REPLACE VIEW base_data.web_glacier_description_json AS
 		  name_full,
 		  json_build_object(
 			  'language', fk_language_type,
-			  'description', description /*,*/
+			  'description', description,
+			  'citation', citation /*,*/
 			) AS point
 		FROM base_data.web_glacier_description
 	  ) AS data

@@ -25,7 +25,10 @@ CREATE OR REPLACE VIEW length_change.vw_length_change_data AS
 			dqt1.pk                    AS fk_measure_date_start_quality,
 			dqt2.pk                    AS fk_measure_date_endquality,
 			lc.elevation_min           AS elvation_tongue,
-			lc.observer                AS observer
+			lc.observer                AS observer,
+			lc.fk_data_embargo_type    AS data_embargo_type,
+			det.description            AS data_embargo_description
+			
 	FROM
 		length_change.length_change_data AS lc
 	LEFT JOIN base_data.vw_glacier AS g ON 
@@ -34,7 +37,9 @@ CREATE OR REPLACE VIEW length_change.vw_length_change_data AS
 	LEFT JOIN length_change.date_quality_type AS dqt1 ON 
 			(lc.date_from_quality = dqt1.pk)
 	LEFT JOIN length_change.date_quality_type AS dqt2 ON 
-			(lc.date_to_quality = dqt2.pk);
+			(lc.date_to_quality = dqt2.pk)
+	LEFT JOIN administration.data_embargo_type AS det ON
+			(lc.fk_data_embargo_type = det.pk);
 
 GRANT SELECT ON length_change.vw_length_change_data TO glro;
 GRANT SELECT ON length_change.vw_length_change_data TO glrw;
