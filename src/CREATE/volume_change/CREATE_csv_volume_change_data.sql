@@ -37,7 +37,8 @@ CREATE OR REPLACE VIEW volume_change.csv_volume_change_data AS
 		vcd.height_change_mean    AS mean_thickness_change,
 
 		/* Calculation of the annual geodetic mass balance */
-		round(vcd.volume_change / (vcd.area_from + vcd.area_to) / 2 * 1000 * 1000 * 0.85 / (date_part('YEAR', vcd.date_to) - date_part('YEAR', vcd.date_from)))::bigint
+		/* Calculation of the annual geodetic mass balance */
+		(((vcd.volume_change*1000) / (((vcd.area_from + vcd.area_to) / 2) * (date_part('YEAR', vcd.date_to) - date_part('YEAR', vcd.date_from))))*0.85)::decimal(10,2)
 								  AS annual_geodetic_mass_balance,
 																																	   
 	    /* Information about the observer */
