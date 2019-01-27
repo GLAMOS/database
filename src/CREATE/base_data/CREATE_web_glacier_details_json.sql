@@ -1,13 +1,23 @@
 CREATE OR REPLACE VIEW base_data.web_glacier_details_json AS
 	SELECT
 		glacier_details.pk_glacier,
+		/* JSON objects written in all cases */
 		jsonb_build_object(
 			'pk_sgi', glacier_details.pk_sgi, 
 			'glacier_short_name', glacier_details.glacier_short_name,
-			'glacier_full_name', glacier_details.glacier_full_name,
-			'texts', glacier_details.json_description, 
-			'pictures', glacier_details.json_picture
-		) AS json
+			'glacier_full_name', glacier_details.glacier_full_name
+		)
+		/* JSON object in case of existing description(s) */
+		|| CASE
+			WHEN glacier_details.json_description IS NULL THEN '{}'::jsonb
+			ELSE jsonb_build_object('texts', glacier_details.json_description)
+		END
+		/* JSON object in case of existing picture(s) */
+		|| CASE
+			WHEN glacier_details.json_picture IS NULL THEN '{}'::jsonb
+			ELSE jsonb_build_object('pictures', glacier_details.json_picture)
+		END						
+		AS json
 	   FROM ( SELECT
 				/* Get the SGI-ID from the description or picture table */
 				CASE
