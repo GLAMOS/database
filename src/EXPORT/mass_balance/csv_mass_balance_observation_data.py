@@ -82,7 +82,7 @@ def write():
 
             print(lineToWrite)
 
-        the_file.write(lineToWrite)
+            the_file.write(lineToWrite)
 
 if __name__ == "__main__":
     parser = ConfigParser()
