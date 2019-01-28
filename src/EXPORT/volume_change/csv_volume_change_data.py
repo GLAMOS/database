@@ -3,26 +3,26 @@ from configparser import ConfigParser
 
 CONNECTION_STRING_TEMPLATE = "host='{0}' dbname='{1}' user='{2}' password='{3}' connect_timeout={4}"
 
-dataLineTemplate           = "{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11}\n"
+dataLineTemplate = "{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11}\n"
 
 # DB connection and statement
-host                      = None
-dbName                    = None
-dbUser                    = None
-dbPassword                = None
-timeout                   = None
+host = None
+dbName = None
+dbUser = None
+dbPassword = None
+timeout = None
 
-statement                 = None
-connectionString          = None
+statement = None
+connectionString = None
 
 # Header text
-introduction_data         = None
-introduction_citation     = None
-citation                  = None
-title                     = None
+introduction_data = None
+introduction_citation = None
+citation = None
+title = None
 
 # File
-filename                  = None
+filename = None
 
 def write():
     connection = psycopg2.connect(connectionString)
@@ -75,28 +75,27 @@ def write():
             the_file.write(lineToWrite)
 
 
-if __name__ == "__main__":
-
-    parser                = ConfigParser()
+if  __name__ == "__main__":
+    parser = ConfigParser()
     parser.read('../glamos_export.config')
 
-    parserPrivate         = ConfigParser()
+    parserPrivate = ConfigParser()
     parserPrivate.read('../glamos_export.private.config')
 
-    host                  = parserPrivate.get('db_access', 'host')
-    dbName                = parserPrivate.get('db_access', 'dbName')
-    dbUser                = parserPrivate.get('db_access', 'dbUser')
-    dbPassword            = parserPrivate.get('db_access', 'dbPassword')
-    timeout               = parserPrivate.get('db_access', 'timeout')
-            
-    connectionString      = CONNECTION_STRING_TEMPLATE.format(host, dbName, dbUser, dbPassword, timeout)
+    host = parserPrivate.get('db_access', 'host')
+    dbName = parserPrivate.get('db_access', 'dbName')
+    dbUser = parserPrivate.get('db_access', 'dbUser')
+    dbPassword = parserPrivate.get('db_access', 'dbPassword')
+    timeout = parserPrivate.get('db_access', 'timeout')
 
-    introduction_data     = parser.get('general',       'introduction_data')
-    introduction_citation = parser.get('general',       'introduction_citation')
-    title                 = parser.get('volume_change', 'title')
-    citation              = parser.get('volume_change', 'citation')
+    connectionString = CONNECTION_STRING_TEMPLATE.format(host, dbName, dbUser, dbPassword, timeout)
 
-    filename              = parser.get('volume_change', 'filename')
-    statement             = parser.get('volume_change', 'statement')
+    introduction_data = parser.get('general', 'introduction_data')
+    introduction_citation = parser.get('general', 'introduction_citation')
+    title = parser.get('volumechange', 'title')
+    citation = parser.get('volumechange', 'citation')
+
+    filename = parser.get('volumechange', 'filename')
+    statement = parser.get('volumechange', 'statement')
 
     write()
