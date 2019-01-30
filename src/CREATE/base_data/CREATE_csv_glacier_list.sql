@@ -9,7 +9,7 @@ CREATE OR REPLACE VIEW base_data.csv_glacier_list AS
 		g.pk_sgi,
 		round(st_x(st_transform(g.geom, 2056))::numeric, 3) AS coordx,
 		round(st_y(st_transform(g.geom, 2056))::numeric, 3) AS coordy,
-		il.area/1000000 AS area_km2,
+		round((il.area/1000000::numeric)::numeric, 3)  AS area_km2,
 		il.sgi_release  AS area_year,
 		hlcd.has_length,
 		mbohd.mass_balance_observation_has_data             AS has_mass,
