@@ -3,7 +3,7 @@ from configparser import ConfigParser
 
 CONNECTION_STRING_TEMPLATE = "host='{0}' dbname='{1}' user='{2}' password='{3}' connect_timeout={4}"
 
-dataLineTemplate = "{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11};{12};{13}\n"
+dataLineTemplate = "{0};{1};{2};{3};{4};{5};{6};{7};{8}\n"
 
 # DB connection and statement
 host = None
@@ -23,7 +23,6 @@ title = None
 
 # File
 filename = None
-
 
 def write():
     connection = psycopg2.connect(connectionString)
@@ -46,24 +45,17 @@ def write():
         the_file.write("\n")
         the_file.write("\n")
 
-        # Write the column header information.
-        the_file.write(dataLineTemplate.format("glacier name", "glacier id", "start date of observation",
-                                               "end date of winter observation", "end date of observation",
-                                               "winter mass balance", "summer mass balance", "annual mass balance",
-                                               "equilibrium line altitude", "accumulation area ratio", "glacier area",
-                                               "minimum elevation of glacier", "maximum elevation of glacier",
-                                               "observer"))
-        the_file.write(
-            dataLineTemplate.format("", "(according to Swiss Glacier Inventory)", "date_start", "date_end_winter",
-                                    "date_end", "Bw", "Bs", "Ba", "ELA", "AAR", "area", "h_min", "h_max", ""))
-        the_file.write(
-            dataLineTemplate.format("", "", "yyyy-mm-dd (ISO 8601)", "yyyy-mm-dd (ISO 8601)", "yyyy-mm-dd (ISO 8601)",
-                                    "mm w.e.", "mm w.e.", "mm w.e.", "m asl.", "%", "km2", "m asl.", "m asl.", ""))
+        # Write the column header information
+        the_file.write(dataLineTemplate.format("glacier name", "glacier id", "coordx", "coordy",
+                                    "glacier area", "survey year for glacier area", "length change",
+                                    "mass balance", "volume change"))
+        the_file.write(dataLineTemplate.format("", "(according to Swiss Glacier Inventory)", "EPSG-ID=2056",
+                                               "EPSG-ID=2056", "area", "date",
+                                               "data available", "data available", "data available"))
+        the_file.write(dataLineTemplate.format("", "", "x_LV95", "Y_LV95", "km2", "yyyy", "", "",""))
 
         # Write the individual measurements.
         for recordReturned in cursor:
-            reference = recordReturned[13].replace(";", ",")
-
             lineToWrite = dataLineTemplate.format(
                 recordReturned[0],
                 recordReturned[1],
@@ -73,17 +65,15 @@ def write():
                 recordReturned[5],
                 recordReturned[6],
                 recordReturned[7],
-                recordReturned[8],
-                recordReturned[9],
-                recordReturned[10],
-                recordReturned[11],
-                recordReturned[12],
-                reference)
+                recordReturned[8])
+
             print(lineToWrite)
 
             the_file.write(lineToWrite)
 
 if __name__ == "__main__":
+
+
     parser = ConfigParser()
     parser.read('../glamos_export.config')
 
@@ -100,10 +90,10 @@ if __name__ == "__main__":
 
     introduction_data = parser.get('general', 'introduction_data')
     introduction_citation = parser.get('general', 'introduction_citation')
-    title = parser.get('massbalance_fixedate', 'title')
-    citation = parser.get('massbalance_fixedate', 'citation')
+    title = parser.get('glacier_list', 'title')
+    citation = parser.get('glacier_list', 'citation')
 
-    filename = parser.get('massbalance_fixedate', 'filename')
-    statement = parser.get('massbalance_fixedate', 'statement')
+    filename = parser.get('glacier_list', 'filename')
+    statement = parser.get('glacier_list', 'statement')
 
     write()

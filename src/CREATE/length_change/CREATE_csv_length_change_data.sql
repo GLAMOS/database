@@ -48,7 +48,9 @@ CREATE OR REPLACE VIEW length_change.csv_length_change_data AS
 	/*
 	ONLY PUBLIC DATA
 	*/
-	WHERE data_embargo_type = 0;
+	WHERE data_embargo_type = 0
+	
+	ORDER BY glacier_id ASC;
 	
 ALTER TABLE length_change.csv_length_change_data
     OWNER TO gladmin;
