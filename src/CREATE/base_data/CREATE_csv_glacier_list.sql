@@ -24,10 +24,10 @@ CREATE OR REPLACE VIEW base_data.csv_glacier_list AS
 	
 	WHERE hlcd.has_length = 1 OR mbohd.mass_balance_observation_has_data = 1 OR hlcd.has_length = 1;
 	
-ALTER TABLE base_data.web_glacier_base_data
+ALTER TABLE base_data.csv_glacier_list
     OWNER TO gladmin;
 
-GRANT ALL ON TABLE base_data.web_glacier_base_data TO gladmin;
-GRANT SELECT ON TABLE base_data.web_glacier_base_data TO glporo;
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE base_data.web_glacier_base_data TO glrw;
-GRANT SELECT ON TABLE base_data.web_glacier_base_data TO glro;
+GRANT ALL ON TABLE base_data.csv_glacier_list TO gladmin;
+GRANT SELECT ON TABLE base_data.csv_glacier_list TO glporo;
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE base_data.csv_glacier_list TO glrw;
+GRANT SELECT ON TABLE base_data.csv_glacier_list TO glro;

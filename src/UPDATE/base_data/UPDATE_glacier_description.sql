@@ -1,1 +1,0 @@
-UPDATE base_data.glacier_description SET description = "" WHERE fk_glacier ='' AND fk_language='fr' AND fk_descritptionstype ='0'
