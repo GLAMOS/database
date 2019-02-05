@@ -21,14 +21,18 @@ CREATE OR REPLACE VIEW length_change.vw_length_change_data AS
 		    lc.date_to                 AS measure_date_end,
 		    dqt2.description           AS measure_date_endquality,
 			lc.variation_quantitative  AS length_change,
-			sum(variation_quantitative) OVER (PARTITION BY pk_sgi ORDER BY date_to) AS length_change_cumulative,
+			CASE
+				WHEN lcr.variation_reference IS NULL THEN
+					sum(lc.variation_quantitative) OVER (PARTITION BY pk_sgi ORDER BY lc.date_to)
+				ELSE
+					sum(lc.variation_quantitative) OVER (PARTITION BY pk_sgi ORDER BY lc.date_to) - lcr.variation_reference
+			END AS length_change_cumulative,
 			dqt1.pk                    AS fk_measure_date_start_quality,
 			dqt2.pk                    AS fk_measure_date_endquality,
 			lc.elevation_min           AS elvation_tongue,
 			lc.observer                AS observer,
 			lc.fk_data_embargo_type    AS data_embargo_type,
-			det.description            AS data_embargo_description
-			
+			det.description            AS data_embargo_description			
 	FROM
 		length_change.length_change_data AS lc
 	LEFT JOIN base_data.vw_glacier AS g ON 
@@ -39,7 +43,9 @@ CREATE OR REPLACE VIEW length_change.vw_length_change_data AS
 	LEFT JOIN administration.date_quality_type AS dqt2 ON 
 			(lc.date_to_quality = dqt2.pk)
 	LEFT JOIN administration.data_embargo_type AS det ON
-			(lc.fk_data_embargo_type = det.pk);
+			(lc.fk_data_embargo_type = det.pk)
+	LEFT JOIN length_change.vw_length_change_reference AS lcr ON
+			(lc.fk_glacier = lcr.fk_glacier);
 
 GRANT SELECT ON length_change.vw_length_change_data TO glro;
 GRANT SELECT ON length_change.vw_length_change_data TO glrw;

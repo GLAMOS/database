@@ -1,0 +1,1 @@
+UPDATE length_change.length_change_data SET fk_data_embargo_type = 11 WHERE date_from = '1850-09-01' AND observer = 'VAW/ETHZ, Bauder';
