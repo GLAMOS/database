@@ -50,7 +50,7 @@ CREATE OR REPLACE VIEW length_change.csv_length_change_data AS
 	*/
 	WHERE data_embargo_type = 0
 	
-	ORDER BY glacier_id ASC;
+	ORDER BY glacier_id ASC, lcd.measure_date_start;
 	
 ALTER TABLE length_change.csv_length_change_data
     OWNER TO gladmin;
