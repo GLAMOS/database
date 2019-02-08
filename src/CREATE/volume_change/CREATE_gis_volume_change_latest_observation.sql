@@ -19,7 +19,8 @@ CREATE OR REPLACE VIEW volume_change.gis_volume_change_latest_observation AS
 		vc.height_capture_method_to_type,
 		vc.analysis_method_type_key,
 		vc.analysis_method_type,
-
+		
+		vcfod.first_observation_date,
 		vc.date_from,
 		vc.date_to,
 		vc.area_from,
@@ -37,7 +38,9 @@ CREATE OR REPLACE VIEW volume_change.gis_volume_change_latest_observation AS
 	LEFT JOIN volume_change.vw_volume_change AS vc ON
 		(vc.pk_glacier = vclod.pk_glacier AND vc.date_to = vclod.latest_observation_date)
 	LEFT JOIN base_data.vw_glacier AS g ON
-		(g.pk = vclod.pk_glacier);
+		(g.pk = vclod.pk_glacier)
+	LEFT JOIN volume_change.vw_volume_change_first_observation_date AS vcfod ON
+		(vcfod.pk_glacier = vclod.pk_glacier);
 
 ALTER TABLE volume_change.gis_volume_change_latest_observation
     OWNER TO gladmin;
