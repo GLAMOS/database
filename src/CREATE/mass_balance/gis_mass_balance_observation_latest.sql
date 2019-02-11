@@ -13,6 +13,7 @@ CREATE OR REPLACE VIEW mass_balance.gis_mass_balance_observation_latest AS
 		g.name_full,
 		g.geom,
 		mb.latest_observation_date,
+		EXTRACT(YEAR FROM mb.latest_observation_date) AS latest_observation_year,
 		mb.latest_mass_balance_annual,
 		mb.latest_mass_balance_annual_cumulative,
 		mb.latest_mass_balance_winter,
