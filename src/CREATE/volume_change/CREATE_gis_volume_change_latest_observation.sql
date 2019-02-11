@@ -21,8 +21,11 @@ CREATE OR REPLACE VIEW volume_change.gis_volume_change_latest_observation AS
 		vc.analysis_method_type,
 		
 		vcfod.first_observation_date,
-		vc.date_from,
+		extract(year from vcfod.first_observation_date) AS first_observation_year,
+   		vc.date_from,
+		extract(year from vc.date_from) AS year_from,
 		vc.date_to,
+		extract(year from vc.date_to) AS year_to,
 		vc.area_from,
 		vc.area_to,
 
