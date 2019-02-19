@@ -1,0 +1,1 @@
+INSERT INTO base_data.glacier_picture VALUES ('b096120b-a99e-4cd2-8b68-84ef0773fa28', '802711f0-4ec8-11e8-9b4c-985fd331b2ee', 'lang_20170619.jpg', '2017-06-19', 'Funk', 'Marc',1)
