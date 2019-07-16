@@ -116,6 +116,7 @@ INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('D
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('DAV', 33, 2015, 2.0);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('DAV', 33, 2016, 1.6);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('DAV', 33, 2017, 1.4);
+INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('DAV', 33, 2018, 2.2);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('GSB', 33, 1900, -0.1);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('GSB', 33, 1901, -1.1);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('GSB', 33, 1902, -0.5);
@@ -234,6 +235,7 @@ INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('G
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('GSB', 33, 2015, 2.4);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('GSB', 33, 2016, 1.6);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('GSB', 33, 2017, 1.8);
+INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('GSB', 33, 2018, 2.0);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('LUG', 33, 1900, 0.2);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('LUG', 33, 1901, -0.9);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('LUG', 33, 1902, -0.4);
@@ -352,6 +354,7 @@ INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('L
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('LUG', 33, 2015, 2.2);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('LUG', 33, 2016, 1.7);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('LUG', 33, 2017, 1.8);
+INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('LUG', 33, 2018, 2.3);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SAE', 33, 1900, -0.3);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SAE', 33, 1901, -1.2);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SAE', 33, 1902, -0.5);
@@ -470,6 +473,7 @@ INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('S
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SAE', 33, 2015, 2.2);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SAE', 33, 2016, 1.4);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SAE', 33, 2017, 1.4);
+INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SAE', 33, 2018, 2.3);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 1900, -0.1);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 1901, -1.3);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 1902, -1.0);
@@ -588,3 +592,4 @@ INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('S
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 2015, 2.3);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 2016, 2.0);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 2017, 2.1);
+vv
