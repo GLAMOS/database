@@ -16,7 +16,33 @@ CREATE OR REPLACE VIEW base_data.web_glacier_details_json AS
 		|| CASE
 			WHEN glacier_details.json_picture IS NULL THEN '{}'::jsonb
 			ELSE jsonb_build_object('pictures', glacier_details.json_picture)
-		END						
+		END		
+		/* JSON object in case of existing length change data */
+		|| CASE
+			WHEN glacier_details.json_length_change IS NULL THEN '{}'::jsonb
+			ELSE jsonb_build_object('length_change', glacier_details.json_length_change)
+		END
+		/* JSON object in case of existing mass balance observation data */
+		|| CASE
+			WHEN glacier_details.json_mass_balance_observation IS NULL THEN '{}'::jsonb
+			ELSE jsonb_build_object('mass_balance_observation', glacier_details.json_mass_balance_observation)
+		END
+		/* JSON object in case of existing WINTER mass balance observation data */
+		/* || CASE
+			WHEN glacier_details.json_mass_balance_observation_winter_winter IS NULL THEN '{}'::jsonb
+			ELSE jsonb_build_object('mass_balance_obser_winter_winter', glacier_details.json_mass_balance_observation_winter)
+		END */
+		/* JSON object in case of existing mass balance fix date data */
+		|| CASE
+			WHEN glacier_details.json_mass_balance_fix_date IS NULL THEN '{}'::jsonb
+			ELSE jsonb_build_object('mass_balance_fix_date', glacier_details.json_mass_balance_fix_date)
+		END
+		/* JSON object in case of existing WINTER mass balance fix date data */
+		|| CASE
+			WHEN glacier_details.json_mass_balance_fix_date_winter IS NULL THEN '{}'::jsonb
+			ELSE jsonb_build_object('mass_balance_fix_date_winter', glacier_details.json_mass_balance_fix_date_winter)
+		END
+
 		AS json
 	   FROM ( SELECT
 				/* Get the SGI-ID from the description or picture table */
@@ -40,9 +66,20 @@ CREATE OR REPLACE VIEW base_data.web_glacier_details_json AS
 					ELSE gd.glacier_full_name
 				END AS glacier_full_name,
 				gd.json AS json_description,
-				gp.json AS json_picture
+				gp.json AS json_picture,
+				lc.json AS json_length_change,
+				mbo.json AS json_mass_balance_observation,
+				/* mbow.json AS json_mass_balance_observation_winter, */
+				mbf.json AS json_mass_balance_fix_date,
+				mbfw.json AS json_mass_balance_fix_date_winter
 			   FROM base_data.web_glacier_description_json gd
-				 FULL OUTER JOIN base_data.web_glacier_picture_json gp ON gd.pk_glacier = gp.pk_glacier) glacier_details;
+				 FULL OUTER JOIN base_data.web_glacier_picture_json AS gp ON gd.pk_glacier = gp.pk_glacier
+				 FULL OUTER JOIN length_change.web_length_change_glacier_json AS lc ON gd.pk_glacier = lc.pk_glacier
+				 FULL OUTER JOIN mass_balance.web_mass_balance_observation_glacier_json AS mbo ON gd.pk_glacier = mbo.pk_glacier
+				 /* FULL OUTER JOIN mass_balance.web_mass_balance_observation_winter_glacier_json AS mbow ON gd.pk_glacier = mbow.pk_glacier */
+				 FULL OUTER JOIN mass_balance.web_mass_balance_fix_date_glacier_json AS mbf ON gd.pk_glacier = mbf.pk_glacier
+				 FULL OUTER JOIN mass_balance.web_mass_balance_fix_date_winter_glacier_json AS mbfw ON gd.pk_glacier = mbfw.pk_glacier
+		) AS glacier_details;
 
 ALTER TABLE base_data.web_glacier_details_json
     OWNER TO gladmin;
