@@ -8,7 +8,7 @@ SELECT
 		'pk_sgi',               wlc.pk_sgi,
 		'year_from',            wlc.year_from,
 		'year_to',              wlc.year_to,
-		'varition',             wlc.varition,
+		'variation',            wlc.variation,
 		'variation_cumulative', wlc.variation_cumulative
  	) AS json_build_object
 	

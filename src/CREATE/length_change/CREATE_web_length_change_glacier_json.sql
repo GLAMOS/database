@@ -7,7 +7,7 @@ CREATE OR REPLACE VIEW length_change.web_length_change_glacier_json AS
  json_agg(data.length_change ) AS json
  FROM (
 	SELECT wlc.pk_glacier, wlc.glacier_short_name, wlc.glacier_full_name, wlc.pk_sgi,
-	jsonb_build_object('year_from', wlc.year_from, 'year_to', wlc.year_to, 'varition', wlc.varition, 'variation_cumulative', wlc.variation_cumulative) AS length_change
+	jsonb_build_object('year_from', wlc.year_from, 'year_to', wlc.year_to, 'variation', wlc.variation, 'variation_cumulative', wlc.variation_cumulative) AS length_change
 	FROM length_change.web_length_change wlc
 	ORDER BY wlc.year_from, wlc.year_to
  ) AS data

@@ -8,6 +8,7 @@ CREATE OR REPLACE VIEW base_data.vw_outline AS
 	SELECT 
 			row_number() OVER() AS gid, 
 			g.pk_sgi            AS pk_sgi,
+			g.pk_vaw			AS pk_vaw,
 			g.pk_wgms           AS pk_wgms,
 			g.pk_glims          AS pk_glims,
 			g.river_level_3     AS river_level_3,
