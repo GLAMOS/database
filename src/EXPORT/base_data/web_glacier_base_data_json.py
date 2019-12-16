@@ -1,3 +1,5 @@
+# Python 3.7
+
 import psycopg2
 
 CONNECTION_STRING_TEMPLATE = "host='{0}' dbname='{1}' user='{2}' password='{3}' connect_timeout={4}"
