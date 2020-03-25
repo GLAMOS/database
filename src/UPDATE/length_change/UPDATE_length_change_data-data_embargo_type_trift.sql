@@ -1,0 +1,16 @@
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='18217b70-5a6e-11e8-8ef6-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='18223ec0-5a6e-11e8-b742-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='18239e4f-5a6e-11e8-a8c6-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='18254c00-5a6e-11e8-be69-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='1826d29e-5a6e-11e8-b5dc-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='18285940-5a6e-11e8-b6b2-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='1829dfde-5a6e-11e8-ac7b-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='182b3f70-5a6e-11e8-b5c8-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='182c50de-5a6e-11e8-b74a-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='182d624f-5a6e-11e8-8fa0-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='182e9ad1-5a6e-11e8-afd5-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='182f852e-5a6e-11e8-b125-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='18306f8f-5a6e-11e8-bad3-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='183159f0-5a6e-11e8-8ba8-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='1832e08f-5a6e-11e8-9f56-985fd331b2ee';
+UPDATE length_change.length_change_data SET fk_data_embargo_type='11' WHERE pk='18348e40-5a6e-11e8-96b1-985fd331b2ee';
