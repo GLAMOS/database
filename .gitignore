@@ -9,4 +9,4 @@ src/CREATE/test/glrw_test.sql
 *.csv
 *.geojson
 src/EXPORT/glamos_export.private.config
-dumps/*.*
+dumps/*
