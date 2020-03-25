@@ -503,4 +503,4 @@ INSERT INTO glacier_hazard.event2damage_type (fk_event, fk_damage_type) VALUES (
 INSERT INTO glacier_hazard.event2damage_type (fk_event, fk_damage_type) VALUES ('30c33732-4ea6-4c36-bb20-de1186bc7942','300');
 INSERT INTO glacier_hazard.event2damage_type (fk_event, fk_damage_type) VALUES ('062e0814-752b-4ecc-80ec-f6a16edb739c','300');
 INSERT INTO glacier_hazard.event2damage_type (fk_event, fk_damage_type) VALUES ('dfc6ed3f-f757-4765-9960-36df36183877','230');
-INSERT INTO glacier_hazard.event2damage_type (fk_event, fk_damage_type) VALUES ('cd97474f-c7a5-49fd-b531-68be1f0fca3e','244');
+INSERT INTO glacier_hazard.event2damage_type (fk_event, fk_damage_type) VALUES ('0cc2659a-bdf2-4207-bcf5-4f9bbb8fd06b','300');

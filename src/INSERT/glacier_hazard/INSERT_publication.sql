@@ -249,3 +249,4 @@ INSERT INTO glacier_hazard.publication (pk, author, date_of_publication, title, 
 INSERT INTO glacier_hazard.publication (pk, author, date_of_publication, title, citation) VALUES ('5c9b9ad2-3cfe-11ea-b77f-2e728ce88125','Der Bund','1999','unknown','unknown');
 INSERT INTO glacier_hazard.publication (pk, author, date_of_publication, title, citation) VALUES ('b76b85dd-1f6e-4bfc-9b24-245c3121c743','Truffer','1969','unknown','unknown');
 INSERT INTO glacier_hazard.publication (pk, author, date_of_publication, title, citation) VALUES ('5c9b8dee-3cfe-11ea-b77f-2e728ce88125','Wilhelm','1974','unknown','unknown');
+INSERT INTO glacier_hazard.publication (pk, author, date_of_publication, title, citation) VALUES ('29f5c0bf-4471-48be-8ef2-c52b01baa2ac','Geopraevent','unknown','unknown','Persönliche Mitteilung');

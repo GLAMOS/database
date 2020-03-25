@@ -548,3 +548,4 @@ INSERT INTO glacier_hazard.event2publication (fk_event, fk_publication) VALUES (
 INSERT INTO glacier_hazard.event2publication (fk_event, fk_publication) VALUES ('062e0814-752b-4ecc-80ec-f6a16edb739c','29f5c0bf-4471-48be-8ef2-c52b01baa2ac');
 INSERT INTO glacier_hazard.event2publication (fk_event, fk_publication) VALUES ('dfc6ed3f-f757-4765-9960-36df36183877','ce742b50-1509-11ea-8d71-362b9e155667');
 INSERT INTO glacier_hazard.event2publication (fk_event, fk_publication) VALUES ('cd97474f-c7a5-49fd-b531-68be1f0fca3e','5c9b9082-3cfe-11ea-b77f-2e728ce88125');
+INSERT INTO glacier_hazard.event2publication (fk_event, fk_publication) VALUES ('0cc2659a-bdf2-4207-bcf5-4f9bbb8fd06b','29f5c0bf-4471-48be-8ef2-c52b01baa2ac');

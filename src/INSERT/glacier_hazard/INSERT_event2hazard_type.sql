@@ -445,3 +445,4 @@ INSERT INTO glacier_hazard.event2hazard_type (fk_event, fk_hazard_type) VALUES (
 INSERT INTO glacier_hazard.event2hazard_type (fk_event, fk_hazard_type) VALUES ('062e0814-752b-4ecc-80ec-f6a16edb739c','31');
 INSERT INTO glacier_hazard.event2hazard_type (fk_event, fk_hazard_type) VALUES ('dfc6ed3f-f757-4765-9960-36df36183877','11');
 INSERT INTO glacier_hazard.event2hazard_type (fk_event, fk_hazard_type) VALUES ('cd97474f-c7a5-49fd-b531-68be1f0fca3e','23');
+INSERT INTO glacier_hazard.event2hazard_type (fk_event, fk_hazard_type) VALUES ('0cc2659a-bdf2-4207-bcf5-4f9bbb8fd06b','33');
