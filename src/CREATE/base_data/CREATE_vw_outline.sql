@@ -19,6 +19,7 @@ CREATE OR REPLACE VIEW base_data.vw_outline AS
 			o.geom              AS geom,
 			o.measure_date      AS measure_date,
 			g.name_full         AS name_full,
+			g.name_short		AS name_short,
 			oot.short_name      AS object_origin,
 			pcm.short_name      AS position_capture_method,
 			hcm.short_name      AS height_capture_method,
@@ -38,3 +39,5 @@ CREATE OR REPLACE VIEW base_data.vw_outline AS
 
 GRANT SELECT ON base_data.vw_outline TO glro;
 GRANT SELECT ON base_data.vw_outline TO glrw;
+GRANT SELECT ON base_data.vw_outline TO gldiro;
+GRANT SELECT ON base_data.vw_outline TO gldirw;
