@@ -12,10 +12,11 @@ CREATE OR REPLACE VIEW inventory.vw_inventory AS
     get_pk_hades(g.river_level_3::text, g.river_level_2::integer, g.river_level_1::integer, g.river_level_0::text) AS pk_hades,
     ig.geom,
     g.name_full,
-    ig.acquisition AS year_acquisition,
+	ig.acquisition AS year_acquisition,
     ig.release AS sgi_release,
     st_area(st_transform(ig.geom, 2056)) / 1000000::double precision AS area,
-	det.short_name AS embargo
+	det.short_name AS embargo,
+	g.name_short
    FROM inventory.inventory_geometry ig
      LEFT JOIN base_data.vw_glacier g ON ig.fk_glacier = g.pk
 	 LEFT JOIN administration.data_embargo_type det ON ig.fk_data_embargo_type = det.pk;

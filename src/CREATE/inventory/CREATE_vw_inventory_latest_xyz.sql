@@ -1,8 +1,8 @@
-CREATE OR REPLACE VIEW inventory.vw_inventory_latest AS
+CREATE OR REPLACE VIEW inventory.vw_inventory_latest_xyz AS
 	SELECT
 		row_number() OVER() AS gid,
 		latest_inventory.*,
-		st_area(st_transform(latest_inventory.geom, 2056))::bigint AS area
+		st_area(st_transform(latest_inventory.geom, 4326))::bigint AS area
 	FROM (
 		SELECT
 		i.pk_glacier,
