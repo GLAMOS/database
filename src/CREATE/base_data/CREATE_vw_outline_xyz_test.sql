@@ -1,8 +1,8 @@
--- View: base_data.vw_outline
+-- View: base_data.vw_outline_xyz_test
 
--- DROP VIEW base_data.vw_outline;
+-- DROP VIEW base_data.vw_outline_xyz_test;
 
-CREATE OR REPLACE VIEW base_data.vw_outline AS
+CREATE OR REPLACE VIEW base_data.vw_outline_xyz_test AS
  SELECT row_number() OVER () AS gid,
     g.pk_sgi,
     g.pk_vaw,
@@ -13,7 +13,7 @@ CREATE OR REPLACE VIEW base_data.vw_outline AS
     g.river_level_1,
     g.river_level_0,
     get_pk_hades(g.river_level_3::text, g.river_level_2::integer, g.river_level_1::integer, g.river_level_0::text) AS pk_hades,
-    st_union(o.geom) AS geom,
+    ST_Collect(o.geom) AS geom,
     o.measure_date,
     g.name_full,
     g.name_short,
@@ -28,11 +28,11 @@ CREATE OR REPLACE VIEW base_data.vw_outline AS
      LEFT JOIN administration.height_capture_method_type hcm ON o.fk_height_capture_method_type = hcm.pk
      LEFT JOIN base_data.object_type ot ON o.fk_object_type = ot.pk
 GROUP BY g.pk_sgi, g.pk_vaw, g.pk_wgms, g.pk_glims, g.river_level_3, g.river_level_2, g.river_level_1, g.river_level_0, (get_pk_hades(g.river_level_3::text, g.river_level_2::integer, g.river_level_1::integer, g.river_level_0::text)), o.measure_date, g.name_full, g.name_short, oot.short_name, pcm.short_name, hcm.short_name, ot.short_name;
-ALTER TABLE base_data.vw_outline
+ALTER TABLE base_data.vw_outline_xyz_test
     OWNER TO gladmin;
 
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE base_data.vw_outline TO gldirw;
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE base_data.vw_outline TO glrw;
-GRANT SELECT ON TABLE base_data.vw_outline TO glro;
-GRANT SELECT ON TABLE base_data.vw_outline TO gldiro;
-GRANT ALL ON TABLE base_data.vw_outline TO gladmin;
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE base_data.vw_outline_xyz_test TO gldirw;
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE base_data.vw_outline_xyz_test TO glrw;
+GRANT SELECT ON TABLE base_data.vw_outline_xyz_test TO glro;
+GRANT SELECT ON TABLE base_data.vw_outline_xyz_test TO gldiro;
+GRANT ALL ON TABLE base_data.vw_outline_xyz_test TO gladmin;

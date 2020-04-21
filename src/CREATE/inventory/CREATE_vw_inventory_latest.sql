@@ -3,7 +3,6 @@ CREATE OR REPLACE VIEW inventory.vw_inventory_latest AS
 		row_number() OVER() AS gid,
 		latest_inventory.*,
 		st_area(st_transform(latest_inventory.geom, 2056))::bigint AS area
-		latest_inventor.year_acquisition
 	FROM (
 		SELECT
 		i.pk_glacier,

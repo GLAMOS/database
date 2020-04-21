@@ -32,7 +32,7 @@ CREATE OR REPLACE VIEW mass_balance.vw_mass_balance_fix_date AS
      LEFT JOIN administration.data_embargo_type det ON det.pk = mb.fk_embargo_type
      LEFT JOIN mass_balance.analysis_method_type amt ON amt.pk = mb.fk_analysis_method
      LEFT JOIN base_data.vw_glacier g ON g.pk = mb.fk_glacier
-  WHERE mb.fk_mass_balance_type = 2;
+  WHERE mb.fk_mass_balance_type = 2 AND mb.fk_embargo_type = 0;
 
 ALTER TABLE mass_balance.vw_mass_balance_fix_date
     OWNER TO gladmin;

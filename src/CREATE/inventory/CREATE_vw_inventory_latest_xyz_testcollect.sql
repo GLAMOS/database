@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW inventory.vw_inventory_latest_xyz AS
+CREATE OR REPLACE VIEW inventory.vw_inventory_latest_xyz_testcollect AS
 	SELECT
 		row_number() OVER() AS gid,
 		latest_inventory.*,
@@ -6,7 +6,7 @@ CREATE OR REPLACE VIEW inventory.vw_inventory_latest_xyz AS
 	FROM (
 		SELECT
 		i.pk_glacier,
-		ST_UNION(i.geom) AS geom,
+		ST_Collect(i.geom) AS geom,
 		i.sgi_release,
 		i.pk_sgi,
 		i.year_acquisition,
@@ -18,7 +18,7 @@ CREATE OR REPLACE VIEW inventory.vw_inventory_latest_xyz AS
 
 		GROUP BY i.pk_glacier, i.sgi_release, i.pk_sgi, i.year_acquisition,i.name_short) AS latest_inventory
 		
-GRANT SELECT ON TABLE inventory.vw_inventory_latest_xyz TO gldiro;
-GRANT ALL ON TABLE inventory.vw_inventory_latest_xyz TO gladmin;
-GRANT SELECT ON TABLE inventory.vw_inventory_latest_xyz TO glporo;
-GRANT SELECT ON TABLE inventory.vw_inventory_latest_xyz TO glro;
+GRANT SELECT ON TABLE inventory.vw_inventory_latest_xyz_testcollect TO gldiro;
+GRANT ALL ON TABLE inventory.vw_inventory_latest_xyz_testcollect TO gladmin;
+GRANT SELECT ON TABLE inventory.vw_inventory_latest_xyz_testcollect TO glporo;
+GRANT SELECT ON TABLE inventory.vw_inventory_latest_xyz_testcollect TO glro;
