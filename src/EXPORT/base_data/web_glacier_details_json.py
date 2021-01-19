@@ -25,7 +25,7 @@ cursor.execute(statement)
 
 for recordReturned in cursor:
 
-    filename = "./glacier_infos/{0}.json".format(recordReturned[0])
+    filename = "./web_glacier_details/{0}.json".format(recordReturned[0])
 
     print(str(recordReturned[1]))
 

@@ -32,7 +32,7 @@ if counter == 1:
 
     for recordReturned in cursor:
 
-        filename = "./inventory/web_glacier_base_data.geojson"
+        filename = "./web_glacier_base_data/web_glacier_base_data.geojson"
 
         with open(filename, 'w', encoding='utf-8') as the_file:
             the_file.write(str(recordReturned[0]))
