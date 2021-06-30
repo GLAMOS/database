@@ -592,4 +592,5 @@ INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('S
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 2015, 2.3);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 2016, 2.0);
 INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 2017, 2.1);
+INSERT INTO cryospheric_commission.data2d (objid, objtyp, xval, yval) VALUES ('SIO', 33, 2018, 3.2);
 vv
