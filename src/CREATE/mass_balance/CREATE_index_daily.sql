@@ -10,16 +10,19 @@ CREATE TABLE mass_balance.index_daily
 	fk_glacier uuid NOT NULL,
 	name varchar(50) NOT NULL,
 	date date NOT NULL,
-	latitude numeric(12,10) NOT NULL,
-	longitude numeric(12,10) NOT NULL,
-	altitude numeric(6,2) NOT NULL,
+	latitude float,
+	longitude float,
+	altitude float,
 	balance integer NOT NULL,
 	accumulation integer NOT NULL,
 	melt integer NOT NULL,
-	reference text NOT NULL,
-	investigator varchar(100) NOT NULL,
-	creation_date date NOT NULL,
-	fk_surface_type smallint NOT NULL
+	fk_surface_type smallint NOT NULL,
+	temperature float NOT NULL,
+	precipitation float NOT NULL,
+	reference text,
+	investigator varchar(100),
+	creation_date date
+	
 );
 
 /* Create Primary Keys, Indexes, Uniques, Checks */
