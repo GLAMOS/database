@@ -4,7 +4,8 @@
 
 CREATE OR REPLACE VIEW mass_balance.vw_mass_balance_index_seasonal AS
 SELECT row_number() OVER () AS gid,
-    g.pk_sgi,
+    g.pk as pk_glacier,
+	g.pk_sgi,
     g.name_full as glacier_name,
 	g.name_short as glacier_short,
 	name as stake_name,

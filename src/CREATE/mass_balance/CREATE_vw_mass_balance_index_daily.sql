@@ -4,10 +4,11 @@
 
 CREATE OR REPLACE VIEW mass_balance.vw_mass_balance_index_daily AS
 SELECT row_number() OVER () AS gid,
-    g.pk_sgi,
+    g.pk as pk_glacier,
+	g.pk_sgi,
     g.name_full as glacier_name,
 	g.name_short as glacier_short,
-	name as stake_name,
+	ind.name as stake_name,
 	date,
 	st_transform(st_setsrid(st_makepoint(latitude::double precision, longitude::double precision), 21781), 4326) AS geom,
 	latitude,
@@ -20,7 +21,7 @@ SELECT row_number() OVER () AS gid,
 	temperature,
 	precipitation,
 	reference,
-	investgator,
+	investigator,
 	creation_date
 	
 
