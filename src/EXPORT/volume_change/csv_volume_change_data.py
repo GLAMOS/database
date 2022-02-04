@@ -49,7 +49,7 @@ def write():
         # Write the column header information.
         the_file.write(dataLineTemplate.format("glacier name", "glacier id", "start date of observation", "quality of start date", "end date of observation", "quality of start date", "glacier area at start date", "glacier area at end date", "volume change", "mean thickness change", "annual geodetic mass balance", "observer"))
         the_file.write(dataLineTemplate.format("", "(according to Swiss Glacier Inventory)", "date_start", "x = date not exactly known", "date_end", "x = date not exactly known", "area_start", "area_end", "dV", "dh_mean", "Bgeod", ""))
-        the_file.write(dataLineTemplate.format("", "", "yyyy-mm-dd (ISO 8601)", "", "yyyy-mm-dd (ISO 8601)", "", "km2", "km2", "km3", "m", "mm w.e. a-1", ""))
+        the_file.write(dataLineTemplate.format("", "", "yyyy-mm-dd (ISO 8601)", "", "yyyy-mm-dd (ISO 8601)", "", "km2", "km2", "km3", "m", "m w.e. a-1", ""))
 
         # Write the individual measurements.
         for recordReturned in cursor:
