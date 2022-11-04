@@ -10,3 +10,6 @@ src/CREATE/test/glrw_test.sql
 *.geojson
 src/EXPORT/glamos_export.private.config
 dumps/*
+src/BACKUP/BACKUP_glamos-db_20220927
+src/BACKUP/mass_balance.elevation_distribution_20221021
+src/BACKUP/mass_balance.glacier_seasonal_20221021
