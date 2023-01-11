@@ -1,5 +1,5 @@
 ﻿CREATE TABLE flow_velocity.marker_type (
-    pk              smallint      NOT NULL CONSTRAINT date_quality_pk PRIMARY KEY,
+    pk              smallint      NOT NULL CONSTRAINT marker_type_pk PRIMARY KEY,
     description     varchar(50)   NOT NULL
 ) TABLESPACE vector;
 

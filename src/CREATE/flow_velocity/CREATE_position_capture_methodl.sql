@@ -1,6 +1,6 @@
 ﻿CREATE TABLE flow_velocity.position_capture_method (
-    pk              smallint      NOT NULL CONSTRAINT date_quality_pk PRIMARY KEY,
-    description     varchar(50)   NOT NULL
+    pk              smallint      NOT NULL CONSTRAINT position_capture_method_pk PRIMARY KEY,
+    description     varchar(200)   NOT NULL
 ) TABLESPACE vector;
 
 INSERT INTO flow_velocity.position_capture_method (PK, description) VALUES (0,'not defined / unknown');
