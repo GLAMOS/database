@@ -3,7 +3,7 @@ from configparser import ConfigParser
 
 CONNECTION_STRING_TEMPLATE = "host='{0}' dbname='{1}' user='{2}' password='{3}' connect_timeout={4}"
 
-dataLineTemplate = "{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11}\n"
+dataLineTemplate = "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}\n"
 
 # DB connection and statement
 host = None
