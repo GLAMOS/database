@@ -4,12 +4,14 @@
 
 CREATE OR REPLACE VIEW mass_balance.csv_mb_swisswide
  AS
- SELECT *
+ SELECT 
+	main_catchment, 
+	year, 
+	ROUND(area_km2,2) as area_km2, 
+	ROUND(mb_evolution_mwe,3) as mb_evolution_mwe,
+	ROUND(vol_evolution_km3,3) as vol_evolution_km3,
+	ROUND(vol_evolution_per,2) as vol_evolution_per
    FROM mass_balance.vw_mb_swisswide
- UNION
-
-SELECT *
-   FROM mass_balance.vw_mb_swisswide_catchments;
 
 ALTER TABLE mass_balance.csv_mb_swisswide
     OWNER TO gladmin;

@@ -22,11 +22,9 @@ CREATE OR REPLACE VIEW mass_balance.vw_mb_swisswide_glacier
 		WHEN g.river_level_3 = 'E' THEN 'Inn'
 		END as main_catchment,
     mbsw.year,
-	ROUND(mbsw.area,2) as area_km2,
-	ROUND(mbsw.vol_evolution,6) as vol_evolution_km3,
-	ROUND((LAG(mbsw.vol_evolution,1) OVER (ORDER by pk_sgi, mbsw.year)),6) as vol_evolution_km3_1,
-	ROUND((mbsw.vol_evolution) - (LAG(mbsw.vol_evolution,1) OVER (ORDER by pk_sgi,mbsw.year)),6) as dV,
-	ROUND(mbsw.vol_evolution,3) as mb_evolution_mwe
+	ROUND(mbsw.area,6) as area_km2,
+	ROUND(mbsw.mb_evolution,3) as mb_evolution_mwe,
+	ROUND(mbsw.vol_evolution,9) as vol_evolution_km3
 	
    FROM mass_balance.swisswide mbsw
      LEFT JOIN base_data.vw_glacier g ON g.pk = mbsw.fk_glacier

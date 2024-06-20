@@ -24,6 +24,7 @@ title = None
 # File
 filename = None
 
+
 def write():
     connection = psycopg2.connect(connectionString)
     cursor = connection.cursor()
@@ -31,7 +32,6 @@ def write():
     cursor.execute(statement)
 
     with open(filename, 'w', encoding='utf-8') as the_file:
-
         # Write the general header information.
         the_file.write(introduction_data)
         the_file.write("\n")
@@ -40,7 +40,7 @@ def write():
 
         the_file.write(citation)
         the_file.write("\n")
-        
+
         the_file.write("\n")
         the_file.write(title)
         the_file.write("\n")
@@ -48,11 +48,10 @@ def write():
 
         # Write the column header information.
         the_file.write(dataLineTemplate.format("catchment", "year", "area", "massbalance evolution", "volume","volume change"))
-        the_file.write(dataLineTemplate.format("", "yyyy", "km2", "m w.e. a-1", "km3", "%"))
+        the_file.write(dataLineTemplate.format("", "yyyy", "km2", "m w.e. a-1", "km3","%"))
 
         # Write the individual measurements.
         for recordReturned in cursor:
-
             lineToWrite = dataLineTemplate.format(
                 recordReturned[0],
                 recordReturned[1],
@@ -60,14 +59,14 @@ def write():
                 recordReturned[3],
                 recordReturned[4],
                 recordReturned[5],
-                )
+            )
 
             print(lineToWrite)
 
             the_file.write(lineToWrite)
 
 
-if  __name__ == "__main__":
+if __name__ == "__main__":
     parser = ConfigParser()
     parser.read('../glamos_export.config')
 
@@ -84,10 +83,10 @@ if  __name__ == "__main__":
 
     introduction_data = parser.get('general', 'introduction_data')
     introduction_citation = parser.get('general', 'introduction_citation')
-    title = parser.get('massbalance_swisswide', 'title')
-    citation = parser.get('massbalance_swisswide', 'citation')
+    title = parser.get('massbalance_swisswide_catchments', 'title')
+    citation = parser.get('massbalance_swisswide_catchments', 'citation')
 
-    filename = parser.get('massbalance_swisswide', 'filename')
-    statement = parser.get('massbalance_swisswide', 'statement')
+    filename = parser.get('massbalance_swisswide_catchments', 'filename')
+    statement = parser.get('massbalance_swisswide_catchments', 'statement')
 
     write()

@@ -9,7 +9,7 @@ CREATE TABLE mass_balance.swisswide
     year integer NOT NULL,
     area numeric(9,6) NOT NULL,
     mb_evolution numeric(5,3) NOT NULL,
-    vol_evolution numeric(15,12) NOT NULL,
+    vol_evolution numeric(12,9) NOT NULL,
     CONSTRAINT swisswide_pkey PRIMARY KEY (pk),
     CONSTRAINT fk_glacier FOREIGN KEY (fk_glacier)
         REFERENCES base_data.glacier (pk) MATCH SIMPLE
