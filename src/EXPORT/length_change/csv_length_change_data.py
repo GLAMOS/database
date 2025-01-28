@@ -56,6 +56,15 @@ def write():
 
         # Write the individual measurements.
         for recordReturned in cursor:
+
+            print(recordReturned)
+
+            # format 'tongue elevation' as float with no trailing zero or empty if None
+            if recordReturned[7] == None:
+                tongue_elevation = ''
+            else:
+                tongue_elevation = format(float(recordReturned[7]),'g')
+
             lineToWrite = dataLineTemplate.format(
                 recordReturned[0],
                 recordReturned[1],
@@ -64,7 +73,7 @@ def write():
                 recordReturned[4],
                 recordReturned[5],
                 recordReturned[6],
-                recordReturned[7],
+                tongue_elevation,
                 recordReturned[8])
 
             print(lineToWrite)
