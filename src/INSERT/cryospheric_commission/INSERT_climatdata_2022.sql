@@ -32,7 +32,7 @@ INSERT INTO cryospheric_commission.data2d (id, objid, objtyp, xval, yval) VALUES
 INSERT INTO cryospheric_commission.data2d (id, objid, objtyp, xval, yval) VALUES (5751, 'SIO', 33, 2022, 1.5 ); -- Sion
 
 /* Total annual preciptation anomalies (34) */ 
--- The update of this value is done by Andreas Linsbauer (UniZH)                                                 
+-- use xls-file GLAMOS_EKK_update_precip_annomalies_calc-table.xlsx for calculation                                                
 INSERT INTO cryospheric_commission.data2d (id, objid, objtyp, xval, yval) VALUES (5742, 'DAV', 34, 2022, 16.7 ); -- Davos
 INSERT INTO cryospheric_commission.data2d (id, objid, objtyp, xval, yval) VALUES (5743, 'GSB', 34, 2022, 46.8 ); -- Col du Grand St-Bernard
 INSERT INTO cryospheric_commission.data2d (id, objid, objtyp, xval, yval) VALUES (5744, 'LUG', 34, 2022, 29 ); -- Lugano
